@@ -10,20 +10,19 @@ export default class PlantList extends Component {
   contructor() {
     // super();
     this.state = {
-      plants: []
-    }
+      plants: [],
+    };
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3333/plants')
-      .then((res) => {
-        console.log("hellow")
-        console.log(res.data)
-        // console.log(state.plants)
-        this.setState({
-          plants: res.data.plantsData
-        })
-      })
+    axios.get("http://localhost:3333/plants").then((res) => {
+      console.log("hellow");
+      console.log(res.data);
+      // console.log(state.plants)
+      this.setState({
+        plants: res.data.plantsData,
+      });
+    });
   }
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
