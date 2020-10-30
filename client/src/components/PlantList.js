@@ -7,9 +7,28 @@ export default class PlantList extends Component {
   // when the component mounts:
   //   - fetch data from the server endpoint - http://localhost:3333/plants
   //   - set the returned plants array to this.state.plants
+  contructor() {
+    // super();
+    this.state = {
+      plants: []
+    }
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3333/plants')
+      .then((res) => {
+        console.log("hellow")
+        console.log(res.data)
+        // console.log(state.plants)
+        this.setState({
+          plants: res.data.plantsData
+        })
+      })
+  }
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
   render() {
+    // console.log(this.state.plants)
     return (
       <main className="plant-list">
         {this.state?.plants?.map((plant) => (
